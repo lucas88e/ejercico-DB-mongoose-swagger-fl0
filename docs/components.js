@@ -1,7 +1,7 @@
 module.exports = {
     components:{
         schemas:{
-            User:{
+            Task:{
                 type:'object',
                 properties:{
                     _id:{
