@@ -1,4 +1,3 @@
-const path = require('path');
 
 const swaggerOptions = {
     "openapi": "3.0.0",
@@ -24,69 +23,98 @@ const swaggerOptions = {
     ],
     "paths": {
         "/create": {
-            "post": {
-                "summary": "Create a Task.",
-                "description": "Create a Task.",
-                "security": [],
-                "tags": [
-                    "Test"
-                ],
-                "operationId": "posSomething",
-                "responses": {
-                    "204": {
-                        "description": "Indicates, the request was successful."
-                    },
-                    "500": {
-                        "description": "Indicates, the request failed."
-                    }
-                }
-            }
-        },
-        
-            "/id/:_id": {
-                "get": {
-                    "summary": "Get by ID.",
-                    "description": "Get a Task by ID.",
-                    "security": [],
-                    "tags": [
-                        "Test"
-                    ],
-                    "operationId": "getSomething",
-                    "responses": {
-                        "204": {
-                            "description": "Indicates, the request was successful."
-                        },
-                        "500": {
-                            "description": "Indicates, the request failed."
-                        }
-                    }
-                }
-            
-            
-        },
+            post: {
+              tags: {
+                Tasks: " Create a Task.",
+              },
+              description: "Create a Task",
+              operationId: "Create a Task",
+              parameters: [
+                {
+                  name: "_id",
+                  in: "path",
+                  schema: {
+                    $ref: "#/components/schemas/_id",
+                  },
+                  description: "Id of User to be updated",
+                },
+              ],
+              requestBody: {
+                content: {
+                  "application/json": {
+                    schema: { $ref: "#/components/schemas/User" },
+                  },
+                },
+              },
+              responses: {
+                200: { description: "User updated successfully" },
+                500: { description: "Server error" },
+              },
+            },
+          },
+        "/id/:_id": {
+            get: {
+              tags: {
+                Tasks: " Get  Task by ID.",
+              },
+              description: "Get  Task by ID.",
+              operationId: "Get  Task by ID.",
+              parameters: [
+                {
+                  name: "_id",
+                  in: "path",
+                  schema: {
+                    $ref: "#/components/schemas/_id",
+                  },
+                  description: "Id of User to be updated",
+                },
+              ],
+              requestBody: {
+                content: {
+                  "application/json": {
+                    schema: { $ref: "#/components/schemas/User" },
+                  },
+                },
+              },
+              responses: {
+                200: { description: "User updated successfully" },
+                500: { description: "Server error" },
+              },
+            },
+          },
         "/": {
-            "get": {
-                "summary": "Get all TASKS.",
-                "description": "get all Tasks.",
-                "security": [],
-                "tags": [
-                    "Test"
-                ],
-                "operationId": "getSomething",
-                "responses": {
-                    "204": {
-                        "description": "Indicates, the request was successful."
-                    },
-                    "500": {
-                        "description": "Indicates, the request failed."
-                    }
-                }
-            }
-        
-        
-    },
+            get: {
+              tags: {
+                Tasks: " Get all TASKS.",
+              },
+              description: "Get all TASKS.",
+              operationId: "Get all TASKS.",
+              parameters: [
+                {
+                  name: "_id",
+                  in: "path",
+                  schema: {
+                    $ref: "#/components/schemas/_id",
+                  },
+                  description: "Id of User to be updated",
+                },
+              ],
+              requestBody: {
+                content: {
+                  "application/json": {
+                    schema: { $ref: "#/components/schemas/User" },
+                  },
+                },
+              },
+              responses: {
+                200: { description: "User updated successfully" },
+                500: { description: "Server error" },
+              },
+            },
+          },
 
-    "/id/_id": {
+
+    "/id/:_id": {
         put: {
           tags: {
             Tasks: "Update a user",
